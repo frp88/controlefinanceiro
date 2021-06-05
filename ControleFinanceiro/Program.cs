@@ -14,7 +14,8 @@ namespace ControleFinanceiro {
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            // Define o formulário que será exibido inicialmente
+            Application.Run(new frmPrincipal());
         }
     }
 }
