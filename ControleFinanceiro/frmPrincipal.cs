@@ -35,5 +35,20 @@ namespace ControleFinanceiro {
         private void menuStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e) {
            
         }
+
+        private void movimentaçõesToolStripMenuItem_Click(object sender, EventArgs e) {
+            // Instancia e mostra o formulário
+            new frmMovimentacao().ShowDialog();
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
+            MessageBox.Show("Encerrando o programa...");
+            Application.Exit();
+        }
+
+        private void fecharToolStripMenuItem_Click(object sender, EventArgs e) {
+            MessageBox.Show("Fechando a Aplicação...");
+            Application.Exit();
+        }
     }
 }

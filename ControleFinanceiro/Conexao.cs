@@ -9,8 +9,8 @@ namespace ControleFinanceiro {
                             DATABASE=bdfinanceiro;
                             UID=root; 
                             PASSWORD=;";
-        // Declarar uma variável pública e global para conectar com BD
-        public MySqlConnection con;
+        // Declarar uma variável global para conectar com BD
+        private MySqlConnection con;
 
         // Método para abrir a conexão com BD
         public string abreConexao() {
@@ -36,6 +36,11 @@ namespace ControleFinanceiro {
             catch (Exception erro) {
                 return erro.Message;
             }
+        }
+
+        // Método que retorna a conexão com o BD
+        public MySqlConnection conexaoBD() {
+            return con;
         }
     }
 }

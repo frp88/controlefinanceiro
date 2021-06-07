@@ -1,4 +1,3 @@
-D:\Dropbox\Academico\Libertas\7p-TSI1\Projetos\ControleFinanceiro\ControleFinanceiro\obj\Debug\net5.0-windows\ControleFinanceiro.csprojAssemblyReference.cache
 D:\Dropbox\Academico\Libertas\7p-TSI1\Projetos\ControleFinanceiro\ControleFinanceiro\obj\Debug\net5.0-windows\ControleFinanceiro.frmMovimentacao.resources
 D:\Dropbox\Academico\Libertas\7p-TSI1\Projetos\ControleFinanceiro\ControleFinanceiro\obj\Debug\net5.0-windows\ControleFinanceiro.frmPrincipal.resources
 D:\Dropbox\Academico\Libertas\7p-TSI1\Projetos\ControleFinanceiro\ControleFinanceiro\obj\Debug\net5.0-windows\ControleFinanceiro.Properties.Resources.resources
@@ -27,3 +26,4 @@ D:\Dropbox\Academico\Libertas\7p-TSI1\Projetos\ControleFinanceiro\ControleFinanc
 D:\Dropbox\Academico\Libertas\7p-TSI1\Projetos\ControleFinanceiro\ControleFinanceiro\obj\Debug\net5.0-windows\ref\ControleFinanceiro.dll
 D:\Dropbox\Academico\Libertas\7p-TSI1\Projetos\ControleFinanceiro\ControleFinanceiro\obj\Debug\net5.0-windows\ControleFinanceiro.pdb
 D:\Dropbox\Academico\Libertas\7p-TSI1\Projetos\ControleFinanceiro\ControleFinanceiro\obj\Debug\net5.0-windows\ControleFinanceiro.genruntimeconfig.cache
+D:\Dropbox\Academico\Libertas\7p-TSI1\Projetos\ControleFinanceiro\ControleFinanceiro\obj\Debug\net5.0-windows\ControleFinanceiro.csproj.AssemblyReference.cache

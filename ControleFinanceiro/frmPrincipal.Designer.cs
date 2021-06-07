@@ -25,7 +25,6 @@ namespace ControleFinanceiro {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            this.button1 = new System.Windows.Forms.Button();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,20 +52,16 @@ namespace ControleFinanceiro {
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimentaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirItensDesteMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tela01ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tela02ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 56);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Abrir Formulário";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // contentsToolStripMenuItem
             // 
@@ -241,37 +236,82 @@ namespace ControleFinanceiro {
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::ControleFinanceiro.Properties.Resources.imagem;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 29);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(739, 442);
+            this.pictureBox1.Size = new System.Drawing.Size(739, 437);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.movimentaçõesToolStripMenuItem,
+            this.abrirItensDesteMenuToolStripMenuItem,
+            this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(739, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(739, 29);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked_1);
             // 
-            // toolStripMenuItem1
+            // movimentaçõesToolStripMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(99, 23);
-            this.toolStripMenuItem1.Text = "Movimentação";
-            this.toolStripMenuItem1.ToolTipText = "Clique aqui para abrir a tela de movimentação";
+            this.movimentaçõesToolStripMenuItem.Name = "movimentaçõesToolStripMenuItem";
+            this.movimentaçõesToolStripMenuItem.Size = new System.Drawing.Size(144, 25);
+            this.movimentaçõesToolStripMenuItem.Text = "Movimentações";
+            this.movimentaçõesToolStripMenuItem.Click += new System.EventHandler(this.movimentaçõesToolStripMenuItem_Click);
+            // 
+            // abrirItensDesteMenuToolStripMenuItem
+            // 
+            this.abrirItensDesteMenuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tela01ToolStripMenuItem,
+            this.tela02ToolStripMenuItem,
+            this.sairToolStripMenuItem1});
+            this.abrirItensDesteMenuToolStripMenuItem.Name = "abrirItensDesteMenuToolStripMenuItem";
+            this.abrirItensDesteMenuToolStripMenuItem.Size = new System.Drawing.Size(194, 25);
+            this.abrirItensDesteMenuToolStripMenuItem.Text = "Abrir Itens deste Menu";
+            // 
+            // tela01ToolStripMenuItem
+            // 
+            this.tela01ToolStripMenuItem.Name = "tela01ToolStripMenuItem";
+            this.tela01ToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.tela01ToolStripMenuItem.Text = "Tela 01";
+            // 
+            // tela02ToolStripMenuItem
+            // 
+            this.tela02ToolStripMenuItem.Name = "tela02ToolStripMenuItem";
+            this.tela02ToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.tela02ToolStripMenuItem.Text = "Tela 02";
+            // 
+            // sairToolStripMenuItem1
+            // 
+            this.sairToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fecharToolStripMenuItem});
+            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
+            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(133, 26);
+            this.sairToolStripMenuItem1.Text = "Sair";
+            // 
+            // fecharToolStripMenuItem
+            // 
+            this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
+            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
+            this.fecharToolStripMenuItem.Text = "Fechar";
+            this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(51, 25);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(739, 466);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -289,8 +329,6 @@ namespace ControleFinanceiro {
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
@@ -318,6 +356,12 @@ namespace ControleFinanceiro {
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem movimentaçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem abrirItensDesteMenuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tela01ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tela02ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
     }
 }

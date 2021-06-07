@@ -11,15 +11,6 @@ using System.Windows.Forms;
 namespace ControleFinanceiro {
     public partial class frmMovimentacao : Form {
                 
-        // Declarar a Struct
-        public struct Movimentacao {
-            public string descricao;
-            public double valor;
-            public DateTime dataMov;
-            public string tipoMov;
-            public string situacao;
-        }
-
         // Variável global para controle de um determinado item
         int indexSelecionado;
 
@@ -31,10 +22,9 @@ namespace ControleFinanceiro {
         public void buscaMovimentacoes() {
             // Instanciar um objeto da classe Movimentações
             Movimentacao movimentacao = new Movimentacao();
-            // DataTable dt = movimentacao.
-
+            DataTable dt = movimentacao.select();
             // Preencher o DataGridView (dgvMovimentacoes) com os dados retornados da consulta SQL
-            // dgvMovimentacoes.DataSource = dt;
+            dgvMovimentacoes.DataSource = dt;
         }
 
         private void btnNovo_Click(object sender, EventArgs e) {
@@ -85,33 +75,21 @@ namespace ControleFinanceiro {
                     txtValor.Focus();
                 }
                 else {
-                    // Verificar se data é válida
-                    DateTime dataValida = dtDataMov.Value;
-                    // tentar converter a data digitada para DateTime
-                    //bool dataOk = DateTime.TryParse(txtData.Text, out dataValida);
-                    // Verificar se a data digitada não foi convertida
-                    //if (dataOk == false) {
-                    //MessageBox.Show("Data digitada inválida.");
-                    //txtData.Focus();
-                    //}
-                    //else {
-                    // Declara uma variável da Struct
-                    Movimentacao mov;
-                    // Atribuir os valores para a variável
-                    mov.descricao = txtDescricao.Text;
-                    mov.valor = valor;
-                    mov.dataMov = dataValida;
-                    mov.tipoMov =
-           (rbDespesa.Checked == true ? "D" : "R");
-                    mov.situacao =
-                 ckbPendente.Checked ? "PE" : "CO";
+                    // Instanciar um objeto classe Movimentação e definir os valores para os atributos
+                    Movimentacao mov = new Movimentacao (
+                        txtDescricao.Text, valor, dtDataMov.Value,
+                        rbDespesa.Checked == true ? "D" : "R",
+                        ckbPendente.Checked ? "PE" : "CO");              
+                    // Verifica se é um cadastro ou uma atualização
                     if (indexSelecionado == -1) {
-                        // Chama função que insere uma nova movimentação no BD
-                        //insereMovimentacao(mov);
+                        // Chama o método do objeto que insere uma nova movimentação no BD
+                        mov.insert();
                     }
                     else {
-                        // Chamar a função que atualiza uma determinada movimentação no BD
-                        // atualizaMovimentacao(mov);
+                        // Definir o valor para o atributo "codigo"
+                        mov.codigo = indexSelecionado;
+                        // Chama o método do obejto que atualiza uma determinada movimentação no BD
+                        mov.update();
                     }
                     // Executar o método do botão novo
                     //btnNovo_Click(null, null);
@@ -202,19 +180,16 @@ namespace ControleFinanceiro {
             tabControl1.TabPages.Remove(tabPageControle);
         }
 
-        // Função que insere uma movimentação no BD
-       
-
-        // Função que atualiza uma movimentação na tabela do BD
-        private void atualizaMovimentacao(Movimentacao mov) {
-            
-        }
-
         // Função que exclui uma movimentação na tabela do BD
         private void excluiMovimentacao() {
             DialogResult resultado = MessageBox.Show("Deseja realmente excluir este item?", "Excluir item", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             // Verificar se o botão clicado foi o "SIM"
             if (resultado == DialogResult.Yes) {
+                // Instanciar um objeto da classe "Movimentacao"
+                Movimentacao movimentacao = new Movimentacao();
+                // Executar o método do objeto que exclui uma movimentação na tabela do BD
+                movimentacao.delete(indexSelecionado);
+
                 // Executar o método que retorna as movimentações cadastradas no BD
                 buscaMovimentacoes();
             }
