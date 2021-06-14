@@ -17,23 +17,27 @@ namespace ControleFinanceiro {
         public string tipoMov { get; set; }
         public string situacao { get; set; }
 
+        public int codFormaDePag { get; set; }
+
         // Definição dos Métodos Construtores
         public Movimentacao() { 
         }
 
-        public Movimentacao(string descricao, double valor, DateTime dataMov, string tipoMov, string situacao) {
+        public Movimentacao(string descricao, double valor, DateTime dataMov, string tipoMov, string situacao, int codFormaDePag) {
             this.descricao = descricao;
             this.valor = valor;
             this.dataMov = dataMov;
             this.tipoMov = tipoMov;
             this.situacao = situacao;
+            this.codFormaDePag = codFormaDePag;
         }
-        public Movimentacao(string descricao, double valor, DateTime dataMov, string tipoMov, string situacao, int codigo) {
+        public Movimentacao(string descricao, double valor, DateTime dataMov, string tipoMov, string situacao, int codFormaDePag, int codigo) {
             this.descricao = descricao;
             this.valor = valor;
             this.dataMov = dataMov;
             this.tipoMov = tipoMov;
             this.situacao = situacao;
+            this.codFormaDePag = codFormaDePag;
             this.codigo = codigo;
         }
 
@@ -45,13 +49,14 @@ namespace ControleFinanceiro {
                 // Abrir a conexão com o BD
                 c.abreConexao();
                 // Definir o comando SQL (INSERT) que insere uma nova movimentação no BD
-                MySqlCommand cmd = new MySqlCommand(@"INSERT INTO tblmovimentacao(descricao, valor, datamov, tipomov, situacao) VALUES(@descricao, @valor, @datamov, @tipomov, @situacao);", c.conexaoBD());
+                MySqlCommand cmd = new MySqlCommand(@"INSERT INTO tblmovimentacao(descricao, valor, datamov, tipomov, situacao, codformadepag) VALUES(@descricao, @valor, @datamov, @tipomov, @situacao, @codformadepag);", c.conexaoBD());
                 // Define os valores para os parâmetros 
                 cmd.Parameters.AddWithValue("@descricao", this.descricao);
                 cmd.Parameters.AddWithValue("@valor", this.valor);
                 cmd.Parameters.AddWithValue("@datamov", this.dataMov);
                 cmd.Parameters.AddWithValue("@tipomov", this.tipoMov);
                 cmd.Parameters.AddWithValue("@situacao", this.situacao);
+                cmd.Parameters.AddWithValue("@codformadepag", this.codFormaDePag);
 
                 // Executar o comando SQL (insert). Esse método retorna o total de linhas afetas no BD
                 cmd.ExecuteNonQuery();
@@ -108,12 +113,13 @@ namespace ControleFinanceiro {
                 MySqlCommand cmd = new MySqlCommand(@"
                 UPDATE tblmovimentacao SET descricao = @descricao,
                 valor = @valor, datamov = @datamov, tipomov = @tipomov,
-                situacao = @situacao WHERE codigo = @codigo", c.conexaoBD());
+                situacao = @situacao, codformadepag = @codformadepag WHERE codigo = @codigo", c.conexaoBD());
                 cmd.Parameters.AddWithValue("@descricao", this.descricao);
                 cmd.Parameters.AddWithValue("@valor", this.valor);
                 cmd.Parameters.AddWithValue("@datamov", this.dataMov);
                 cmd.Parameters.AddWithValue("@tipomov", this.tipoMov);
                 cmd.Parameters.AddWithValue("@situacao", this.situacao);
+                cmd.Parameters.AddWithValue("@codformadepag", this.codFormaDePag);
                 cmd.Parameters.AddWithValue("@codigo", this.codigo);
                 // Executar o comando SQL (UPDATE)
                 cmd.ExecuteNonQuery();
@@ -137,8 +143,8 @@ namespace ControleFinanceiro {
                 //con.Open();
                 c.abreConexao();
                 MySqlCommand cmd = new MySqlCommand(@"
-                DELETE FROM tblmovimentacao 
-                WHERE codigo = " + codigo, c.conexaoBD());
+                DELETE FROM tblmovimentacao WHERE codigo = " + 
+                    codigo, c.conexaoBD());
                 cmd.ExecuteNonQuery();
                 //MessageBox.Show("Movimentação excluída com sucesso!");
                 return "ok";

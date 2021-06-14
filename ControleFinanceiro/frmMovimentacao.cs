@@ -18,6 +18,18 @@ namespace ControleFinanceiro {
             InitializeComponent();
         }
 
+        // Método que busca todas as formas de pagamento do BD e preenche o ComboBox de Formas de pagamento
+        public void buscaFormasDePagamento() {
+            FormaDePagamento formaDePag = new FormaDePagamento();
+            DataTable dt = formaDePag.select();
+            // Atribui todos os registros para o comboBox
+            cbFormaDePagamento.DataSource = dt;
+            // Definir qual coluna da tabela "tblformadepagamento" será exibida
+            cbFormaDePagamento.DisplayMember = "formadepagamento";
+            // Definir qual a coluna da tabela será manipulada via código
+            cbFormaDePagamento.ValueMember = "codigo";
+        }
+
         // Método que busca todas as movimentações do BD
         public void buscaMovimentacoes() {
             // Instanciar um objeto da classe Movimentações
@@ -53,6 +65,9 @@ namespace ControleFinanceiro {
             tabControl1.TabPages.Add(tabPageControle);
             // Remover a aba de lista de movimentação
             tabControl1.TabPages.Remove(tabPageLista);
+            // ComboBox
+            cbFormaDePagamento.SelectedIndex = 0;
+            cbFormaDePagamento.Text = "Sel. uma forma de pgto.";
             // Colocar o foco na caixa de texto
             txtDescricao.Focus();
         }
@@ -79,7 +94,7 @@ namespace ControleFinanceiro {
                     Movimentacao mov = new Movimentacao (
                         txtDescricao.Text, valor, dtDataMov.Value,
                         rbDespesa.Checked == true ? "D" : "R",
-                        ckbPendente.Checked ? "PE" : "CO");              
+                        ckbPendente.Checked ? "PE" : "CO", Convert.ToInt32(cbFormaDePagamento.SelectedValue.ToString()));              
                     // Verifica se é um cadastro ou uma atualização
                     if (indexSelecionado == -1) {
                         // Chama o método do objeto que insere uma nova movimentação no BD
@@ -111,6 +126,8 @@ namespace ControleFinanceiro {
             // btnNovo_Click(null, null);
             // Executar o método que retorna os dados da tabela do BD e exibe no DataGridView
             buscaMovimentacoes();
+            // Executar o método que retorna todos os registros da tabela "tblformadepagamento" e exibe no ComboBox
+            buscaFormasDePagamento();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e) {
@@ -135,43 +152,6 @@ namespace ControleFinanceiro {
             //}
         }
 
-        private void listView1_DoubleClick(object sender, EventArgs e) {
-            // Pegar o índice do item selecionado
-            //indexSelecionado = listView1.SelectedItems[0].Index;
-            // pegar o valor do item selecionado e colocar nas caixas de texto
-            //txtDescricao.Text = listView1.Items[indexSelecionado].SubItems[0].Text;
-            //string valor = listView1.Items[indexSelecionado].SubItems[1].Text;
-            //txtValor.Text = valor.Replace("R$ ", "");
-            //txtData.Text = listView1.Items[indexSelecionado].SubItems[2].Text;
-            //dtDataMov.Value = DateTime.Parse(listView1.Items[indexSelecionado].SubItems[2].Text);
-            // Verifica se o item da tabela é uma despesa ou uma receita
-            //if (listView1.Items[indexSelecionado].SubItems[3].Text.Trim().Equals("Despesa")) {
-            rbDespesa.Checked = true;
-            //}
-            //else {
-            rbReceita.Checked = true;
-            //}
-            // Verifica se o item selecionado da tabela está pendente ou não
-            //ckbPendente.Checked = listView1.Items[indexSelecionado].SubItems[4].Text.Trim().Equals("Pendente");
-            btnSalvar.Text = "Alterar";
-            btnExcluir.Enabled = true;
-            // Adicionar a aba de controle
-            tabControl1.TabPages.Add(tabPageControle);
-            // Remover a aba de lista
-            tabControl1.TabPages.Remove(tabPageLista);
-            txtDescricao.Focus();
-        }
-
-        private void btnTodaLista_Click(object sender, EventArgs e) {
-            string lista = "--- TODAS MOVIMENTAÇÕES ---\n";
-            // Percorre todos elementos da Lista de Movimentações
-            //foreach (Movimentacao mov in listaMov) {
-            //lista += "\n" + mov.descricao + " - Valor: " +
-            //     mov.valor.ToString("C2");
-            //}
-            // Imprime os valores armazenados na variável string
-            MessageBox.Show(lista);
-        }
 
         private void btnCancelar_Click(object sender, EventArgs e) {
             // Adicionar a aba da Lista
@@ -285,6 +265,8 @@ namespace ControleFinanceiro {
                 // Exibe a Aba de Formulário
                 tabControl1.TabPages.Add(tabPageControle);
                 tabControl1.TabPages.Remove(tabPageLista);
+                // Exibir a forma de pagamento da movimentação
+                cbFormaDePagamento.SelectedValue = dgvMovimentacoes.Rows[e.RowIndex].Cells["codformadepag"].Value;
             }
         }
     }
