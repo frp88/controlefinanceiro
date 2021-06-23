@@ -98,7 +98,8 @@ namespace ControleFinanceiro {
                     // Verifica se é um cadastro ou uma atualização
                     if (indexSelecionado == -1) {
                         // Chama o método do objeto que insere uma nova movimentação no BD
-                        mov.insert();
+                        string ultimoId = mov.insert();
+                        MessageBox.Show("ID da Movimentação: " + ultimoId);
                     }
                     else {
                         // Definir o valor para o atributo "codigo"

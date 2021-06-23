@@ -60,7 +60,8 @@ namespace ControleFinanceiro {
 
                 // Executar o comando SQL (insert). Esse método retorna o total de linhas afetas no BD
                 cmd.ExecuteNonQuery();
-                return "ok";
+                long ultimoId = cmd.LastInsertedId;
+                return ultimoId.ToString();
             }
             catch (Exception erro) {
                 return erro.Message;
@@ -96,7 +97,7 @@ namespace ControleFinanceiro {
             }
             catch (Exception erro) {
                 tabela = new DataTable("erro");
-                tabela.Rows.Add("Erro: " + erro.Message);
+                //tabela.Rows.Add("Erro: " + erro.Message);
                 return tabela;
             }
             finally {
