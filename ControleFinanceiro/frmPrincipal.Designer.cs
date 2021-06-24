@@ -53,11 +53,6 @@ namespace ControleFinanceiro {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.movimentaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.abrirItensDesteMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tela01ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tela02ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sairToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fecharToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -248,7 +243,6 @@ namespace ControleFinanceiro {
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.movimentaçõesToolStripMenuItem,
-            this.abrirItensDesteMenuToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -262,43 +256,6 @@ namespace ControleFinanceiro {
             this.movimentaçõesToolStripMenuItem.Size = new System.Drawing.Size(144, 25);
             this.movimentaçõesToolStripMenuItem.Text = "Movimentações";
             this.movimentaçõesToolStripMenuItem.Click += new System.EventHandler(this.movimentaçõesToolStripMenuItem_Click);
-            // 
-            // abrirItensDesteMenuToolStripMenuItem
-            // 
-            this.abrirItensDesteMenuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tela01ToolStripMenuItem,
-            this.tela02ToolStripMenuItem,
-            this.sairToolStripMenuItem1});
-            this.abrirItensDesteMenuToolStripMenuItem.Name = "abrirItensDesteMenuToolStripMenuItem";
-            this.abrirItensDesteMenuToolStripMenuItem.Size = new System.Drawing.Size(194, 25);
-            this.abrirItensDesteMenuToolStripMenuItem.Text = "Abrir Itens deste Menu";
-            // 
-            // tela01ToolStripMenuItem
-            // 
-            this.tela01ToolStripMenuItem.Name = "tela01ToolStripMenuItem";
-            this.tela01ToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-            this.tela01ToolStripMenuItem.Text = "Tela 01";
-            // 
-            // tela02ToolStripMenuItem
-            // 
-            this.tela02ToolStripMenuItem.Name = "tela02ToolStripMenuItem";
-            this.tela02ToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
-            this.tela02ToolStripMenuItem.Text = "Tela 02";
-            // 
-            // sairToolStripMenuItem1
-            // 
-            this.sairToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fecharToolStripMenuItem});
-            this.sairToolStripMenuItem1.Name = "sairToolStripMenuItem1";
-            this.sairToolStripMenuItem1.Size = new System.Drawing.Size(133, 26);
-            this.sairToolStripMenuItem1.Text = "Sair";
-            // 
-            // fecharToolStripMenuItem
-            // 
-            this.fecharToolStripMenuItem.Name = "fecharToolStripMenuItem";
-            this.fecharToolStripMenuItem.Size = new System.Drawing.Size(130, 26);
-            this.fecharToolStripMenuItem.Text = "Fechar";
-            this.fecharToolStripMenuItem.Click += new System.EventHandler(this.fecharToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
@@ -315,6 +272,7 @@ namespace ControleFinanceiro {
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -357,11 +315,6 @@ namespace ControleFinanceiro {
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem movimentaçõesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem abrirItensDesteMenuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tela01ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tela02ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem fecharToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
     }
 }

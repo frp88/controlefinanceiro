@@ -42,8 +42,9 @@ namespace ControleFinanceiro {
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
-            MessageBox.Show("Encerrando o programa...");
-            Application.Exit();
+            if (MessageBox.Show("Deseja realmente sair?", "Sair do programa", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                Application.Exit();
+            }
         }
 
         private void fecharToolStripMenuItem_Click(object sender, EventArgs e) {
